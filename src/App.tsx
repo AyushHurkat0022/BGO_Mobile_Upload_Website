@@ -23,10 +23,10 @@
 
 // // // //       // Upload the image to the API
 // // // //       const response = await uploadImageToApi("user123", "session123", imageBase64);
-      
+
 // // // //       // On success, show success message
 // // // //       setUploadMessage("Image uploaded successfully!");
-      
+
 // // // //       // Add the image to the preview list
 // // // //       setImages((prevImages) => [...prevImages, imageBase64]);
 // // // //     } catch (error) {
@@ -105,10 +105,10 @@
 
 // // //       // Upload the image to the API
 // // //       const response = await uploadImageToApi("user123", "session123", imageBase64);
-      
+
 // // //       // On success, show success message
 // // //       setUploadMessage("Image uploaded successfully!");
-      
+
 // // //       // Add the image to the preview list
 // // //       setImages((prevImages) => [...prevImages, imageBase64]);
 // // //     } catch (error) {
@@ -189,10 +189,10 @@
 
 // //       // Upload the image to the API
 // //       const response = await uploadImageToApi("user123", "session123", imageBase64);
-      
+
 // //       // On success, show success message
 // //       setUploadMessage("Image uploaded successfully!");
-      
+
 // //       // Add the image to the preview list
 // //       setImages((prevImages) => [...prevImages, imageBase64]);
 // //     } catch (error) {
@@ -273,10 +273,10 @@
 
 //       // Upload the image to the API
 //       const response = await uploadImageToApi("user123", "session123", imageBase64);
-      
+
 //       // On success, show success message
 //       setUploadMessage("Image uploaded successfully!");
-      
+
 //       // Add the image to the preview list
 //       setImages((prevImages) => [...prevImages, imageBase64]);
 //     } catch (error) {
@@ -375,19 +375,17 @@ const App: React.FC = () => {
       saveImageToLocalStorage(userId, sessionId, imageBase64);
 
       // Upload the image to the API
-      const response = await uploadImageToApi(userId, sessionId, imageBase64);
-      
-      // On success, show success message
+      await uploadImageToApi(userId, sessionId, imageBase64);
       setUploadMessage("Image uploaded successfully!");
-      
-      // Add the image to the preview list
       setImages((prevImages) => [...prevImages, imageBase64]);
+
     } catch (error) {
+      console.error("Error uploading image:", error); // Log the error for debugging
       setUploadMessage("Image upload failed. Please try again.");
       setError("Failed to upload image.");
     } finally {
       setIsLoading(false);
-    }
+    }    
   };
 
   return (
