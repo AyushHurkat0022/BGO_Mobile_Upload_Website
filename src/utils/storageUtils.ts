@@ -1,9 +1,9 @@
 // Function to save an image in localStorage
 export const saveImageToLocalStorage = (userId: string, sessionId: string, imageBase64: string) => {
-  // Get the current images data from localStorage or initialize it as an empty object
+
   const localData = JSON.parse(localStorage.getItem('userImages') || '{}');
 
-  // If no data exists for the user, create a new entry
+  // No data then create new entry
   if (!localData[userId]) {
     localData[userId] = {};
   }
